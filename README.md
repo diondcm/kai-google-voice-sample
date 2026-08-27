@@ -1,6 +1,8 @@
 # Gemini Voice Live with Embarcadero Delphi & Node.js
 
-A full-duplex real-time voice and simultaneous translation application built using **Embarcadero Delphi (FMX / WinRT / Windows Multimedia PCM)** and a **Node.js / Express WebSocket Backend** powered by Google's **Gemini Multimodal Live API** (`gemini-3.1-flash-live-preview`).
+A full-duplex real-time voice and simultaneous translation application built using **Embarcadero Delphi 13 (FMX / WinRT / Windows Multimedia PCM)** and a **Node.js / Express WebSocket Backend** powered by Google's **Gemini Multimodal Live API** (`gemini-3.1-flash-live-preview`).
+
+> **Note**: This entire sample was elaborated with the help of Embarcadero's official **Kai code agent**.
 
 ---
 
@@ -11,6 +13,7 @@ A full-duplex real-time voice and simultaneous translation application built usi
 - **Native Delphi Audio Engine (`Audio.PCM.Windows.pas`)**: Direct low-latency PCM audio capture (16kHz, 16-bit Mono) with Voice Activity Detection (RMS) and PCM playback (24kHz, 16-bit Mono) using Windows Multimedia (`winmm.dll`).
 - **Async WebSocket Client (`Gemini.Live.Client.pas`)**: Asynchronous threaded communication with the backend relay using Windows WinRT `IMessageWebSocket`.
 - **Intelligent Echo & Interruption Handling**: Prevents acoustic feedback during AI speech and seamlessly handles model interruptions.
+- **Elaborated with Embarcadero Kai**: Architecture, audio driver integration, WinRT asynchronous streaming, and backend relay designed with Embarcadero's official Kai coding agent.
 
 ---
 
@@ -19,6 +22,7 @@ A full-duplex real-time voice and simultaneous translation application built usi
 ```
 ┌────────────────────────────────────────────────────────┐
 │              Embarcadero Delphi Client                 │
+│                     (Delphi 13)                        │
 │                                                        │
 │  ┌───────────────────────┐   ┌──────────────────────┐  │
 │  │   TWindowsPcmAudio    │   │  TGeminiLiveClient   │  │
@@ -43,22 +47,30 @@ A full-duplex real-time voice and simultaneous translation application built usi
 
 ---
 
+## 🤖 Developed with Embarcadero Kai
+
+This project was elaborated and accelerated using **Embarcadero's official Kai code agent**, demonstrating seamless integration between modern Delphi 13 FireMonkey applications, Windows native audio multimedia APIs (`winmm`), WinRT asynchronous WebSockets, and Google's Gemini Multimodal Live real-time audio protocols.
+
+---
+
 ## 📁 Repository Structure
 
 ```text
 kai-google-voice-sample/
-├── delphi/                     # Delphi FMX Client Application
+├── delphi/                     # Delphi 13 FMX Client Application
 │   ├── DelphiVoiceSample.dpr   # Delphi project source file
 │   ├── DelphiVoiceSample.dproj # Delphi project configuration
+│   ├── DelphiVoiceSample.res   # Delphi project resource
 │   ├── Form.Main.pas / .fmx    # Main UI form and interaction handlers
 │   ├── Gemini.Live.Client.pas  # Asynchronous WinRT WebSocket client
 │   └── Audio.PCM.Windows.pas   # Native Windows PCM WaveIn/WaveOut driver
-├── backend/                    # Node.js WebSocket relay & Web Dashboard
+├── backend/                    # Node.js WebSocket Voice Relay
 │   ├── server.ts               # Express & WebSocket Gemini Live proxy
 │   ├── package.json            # Node.js dependencies and scripts
 │   ├── .env.example            # Environment variable template (NEVER commit .env)
-│   ├── src/                    # Web frontend components
-│   └── tsconfig.json           # TypeScript configuration
+│   ├── README.md               # Backend documentation
+│   └── src/                    # Web frontend components
+├── .env.example                # Root environment template
 ├── .gitignore                  # Excludes binaries, node_modules, and secrets
 ├── LICENSE                     # License file
 └── README.md                   # Project documentation
@@ -70,7 +82,7 @@ kai-google-voice-sample/
 
 ### Prerequisites
 
-1. **Embarcadero Delphi 11 Alexandria / 12 Athens** (or compatible) with FireMonkey and Windows SDK.
+1. **Embarcadero Delphi 13** (or compatible) with FireMonkey and Windows SDK.
 2. **Node.js (v18+)** and `npm`.
 3. **Google Gemini API Key** from [Google AI Studio](https://aistudio.google.com/).
 
@@ -105,7 +117,7 @@ kai-google-voice-sample/
 
 ### Step 2: Run the Delphi Client
 
-1. Open `delphi/DelphiVoiceSample.dproj` in **Embarcadero RAD Studio / Delphi**.
+1. Open `delphi/DelphiVoiceSample.dproj` in **Embarcadero RAD Studio / Delphi 13**.
 2. Select the target platform (**Win32** or **Win64**).
 3. Build and run the application (`F9`).
 4. Click:
