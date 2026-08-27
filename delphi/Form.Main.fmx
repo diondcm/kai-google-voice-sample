@@ -1,0 +1,485 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Delphi Certification Simulator - Gemini Live Voice AI'
+  ClientHeight = 680
+  ClientWidth = 860
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object rectBackground: TRectangle
+    Align = Client
+    Fill.Color = xFFF0F7FF
+    Size.Width = 860.000000000000000000
+    Size.Height = 680.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object pnlTopBar: TRectangle
+      Align = Top
+      Fill.Color = xFFFFFFFF
+      Size.Width = 860.000000000000000000
+      Size.Height = 64.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFBAE6FD
+      object lblAppTitle: TLabel
+        Position.X = 20.000000000000000000
+        Position.Y = 10.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 24.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = xFF0369A1
+        Text = 'DELPHI CERTIFICATION SIMULATOR'
+      end
+      object lblAppSubtitle: TLabel
+        Position.X = 20.000000000000000000
+        Position.Y = 34.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.FontColor = xFF0284C7
+        Text = 'Gemini Live Voice AI & Interactive Spoken Game'
+      end
+      object cbLanguage: TComboBox
+        Items.Strings = (
+          'en-US'
+          'pt-BR')
+        ItemIndex = 0
+        Position.X = 370.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 90.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        OnChange = cbLanguageChange
+      end
+      object lblTestStatus: TLabel
+        Position.X = 470.000000000000000000
+        Position.Y = 16.000000000000000000
+        Size.Width = 180.000000000000000000
+        Size.Height = 32.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.FontColor = xFF0284C7
+        Text = 'Status: Inactive'
+      end
+      object btnGeminiLive: TButton
+        Position.X = 660.000000000000000000
+        Position.Y = 14.000000000000000000
+        Size.Width = 180.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = 'Start Simulation'
+        OnClick = btnGeminiLiveClick
+      end
+    end
+    object pnlBottomBar: TRectangle
+      Align = Bottom
+      Fill.Color = xFFFFFFFF
+      Position.Y = 570.000000000000000000
+      Size.Width = 860.000000000000000000
+      Size.Height = 110.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFBAE6FD
+      object lblLiveTranscriptTitle: TLabel
+        Position.X = 16.000000000000000000
+        Position.Y = 6.000000000000000000
+        Size.Width = 240.000000000000000000
+        Size.Height = 16.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 10.000000000000000000
+        TextSettings.FontColor = xFF0369A1
+        Text = 'Live Transcript / Gemini Live Voice:'
+      end
+      object lblGeminiStatus: TEdit
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        TabOrder = 0
+        ReadOnly = True
+        Position.X = 660.000000000000000000
+        Position.Y = 4.000000000000000000
+        Size.Width = 184.000000000000000000
+        Size.Height = 22.000000000000000000
+        Size.PlatformDefault = False
+      end
+      object memTranslation: TMemo
+        Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+        DataDetectorTypes = []
+        ReadOnly = True
+        Position.X = 16.000000000000000000
+        Position.Y = 28.000000000000000000
+        Size.Width = 828.000000000000000000
+        Size.Height = 74.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Viewport.Width = 824.000000000000000000
+        Viewport.Height = 70.000000000000000000
+      end
+    end
+    object pnlContent: TLayout
+      Align = Client
+      Margins.Left = 16.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 16.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 828.000000000000000000
+      Size.Height = 486.000000000000000000
+      Size.PlatformDefault = False
+      object layoutWaiting: TLayout
+        Align = Client
+        Size.Width = 828.000000000000000000
+        Size.Height = 486.000000000000000000
+        Size.PlatformDefault = False
+        object rectHero: TRectangle
+          Align = Client
+          Fill.Color = xFFFFFFFF
+          Size.Width = 828.000000000000000000
+          Size.Height = 486.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFBAE6FD
+          XRadius = 12.000000000000000000
+          YRadius = 12.000000000000000000
+          object lblHeroTitle: TLabel
+            Align = Top
+            Margins.Top = 40.000000000000000000
+            Position.Y = 40.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 20.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF0F172A
+            TextSettings.HorzAlign = Center
+            Text = 'Delphi Certification Simulation with AI'
+          end
+          object lblHeroDesc: TLabel
+            Align = Top
+            Margins.Left = 60.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 60.000000000000000000
+            Position.X = 60.000000000000000000
+            Position.Y = 90.000000000000000000
+            Size.Width = 708.000000000000000000
+            Size.Height = 60.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 13.000000000000000000
+            TextSettings.FontColor = xFF334155
+            TextSettings.HorzAlign = Center
+            Text = 
+              'Practice your knowledge in Object Pascal, RTL, Memory Architecture, ' +
+              'VCL/FMX, and Database. Interact by voice conversation or by clicking ' +
+              'the options on screen.'
+          end
+          object rectHeroBadge: TRectangle
+            Align = Center
+            Fill.Color = xFFF0F9FF
+            Size.Width = 520.000000000000000000
+            Size.Height = 110.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Color = xFF38BDF8
+            XRadius = 8.000000000000000000
+            YRadius = 8.000000000000000000
+            object lblHeroBadge1: TLabel
+              Align = Top
+              Margins.Top = 14.000000000000000000
+              Position.Y = 14.000000000000000000
+              Size.Width = 520.000000000000000000
+              Size.Height = 22.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.FontColor = xFF0369A1
+              TextSettings.HorzAlign = Center
+              Text = #8226' 8 Technical Multiple-Choice Questions'
+            end
+            object lblHeroBadge2: TLabel
+              Align = Top
+              Margins.Top = 4.000000000000000000
+              Position.Y = 40.000000000000000000
+              Size.Width = 520.000000000000000000
+              Size.Height = 22.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.FontColor = xFF0369A1
+              TextSettings.HorzAlign = Center
+              Text = #8226' Real-time spoken explanations and instant feedback'
+            end
+            object lblHeroBadge3: TLabel
+              Align = Top
+              Margins.Top = 4.000000000000000000
+              Position.Y = 66.000000000000000000
+              Size.Width = 520.000000000000000000
+              Size.Height = 22.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Size = 11.000000000000000000
+              TextSettings.FontColor = xFF0D9488
+              TextSettings.HorzAlign = Center
+              Text = #8226' Visual Performance Certificate & Report generated by AI'
+            end
+          end
+          object btnLiveTranslation: TButton
+            Align = Bottom
+            Margins.Left = 280.000000000000000000
+            Margins.Right = 280.000000000000000000
+            Margins.Bottom = 40.000000000000000000
+            Position.X = 280.000000000000000000
+            Position.Y = 406.000000000000000000
+            Size.Width = 268.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Simultaneous Translator Mode'
+            OnClick = btnLiveTranslationClick
+          end
+        end
+      end
+      object layoutInTest: TLayout
+        Align = Client
+        Size.Width = 828.000000000000000000
+        Size.Height = 486.000000000000000000
+        Size.PlatformDefault = False
+        Visible = False
+        object pnlTestHeader: TLayout
+          Align = Top
+          Size.Width = 828.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          object lblQuestionProgress: TLabel
+            Size.Width = 400.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF0369A1
+            Text = 'Question 1 of 8 (12%)'
+          end
+          object pbProgress: TProgressBar
+            Max = 8.000000000000000000
+            Orientation = Horizontal
+            Position.Y = 22.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 14.000000000000000000
+            Size.PlatformDefault = False
+            Value = 1.000000000000000000
+          end
+        end
+        object rectQuestionCard: TRectangle
+          Align = Top
+          Fill.Color = xFFFFFFFF
+          Margins.Top = 8.000000000000000000
+          Position.Y = 50.000000000000000000
+          Size.Width = 828.000000000000000000
+          Size.Height = 110.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFBAE6FD
+          XRadius = 10.000000000000000000
+          YRadius = 10.000000000000000000
+          object lblQuestionNumBadge: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 200.000000000000000000
+            Size.Height = 18.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 10.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF0284C7
+            Text = 'QUESTION 1'
+          end
+          object lblQuestionText: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 30.000000000000000000
+            Size.Width = 796.000000000000000000
+            Size.Height = 70.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 13.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF0F172A
+            Text = 'Loading question...'
+          end
+        end
+        object layoutOptions: TLayout
+          Align = Client
+          Margins.Top = 10.000000000000000000
+          Size.Width = 828.000000000000000000
+          Size.Height = 266.000000000000000000
+          Size.PlatformDefault = False
+          object btnOptionA: TButton
+            Align = Top
+            Margins.Bottom = 8.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 52.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'a) Option A'
+            OnClick = btnOptionClick
+          end
+          object btnOptionB: TButton
+            Align = Top
+            Margins.Bottom = 8.000000000000000000
+            Position.Y = 60.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 52.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'b) Option B'
+            OnClick = btnOptionClick
+          end
+          object btnOptionC: TButton
+            Align = Top
+            Margins.Bottom = 8.000000000000000000
+            Position.Y = 120.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 52.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'c) Option C'
+            OnClick = btnOptionClick
+          end
+          object btnOptionD: TButton
+            Align = Top
+            Margins.Bottom = 8.000000000000000000
+            Position.Y = 180.000000000000000000
+            Size.Width = 828.000000000000000000
+            Size.Height = 52.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'd) Option D'
+            OnClick = btnOptionClick
+          end
+        end
+        object layoutTestActions: TLayout
+          Align = Bottom
+          Margins.Top = 6.000000000000000000
+          Position.Y = 442.000000000000000000
+          Size.Width = 828.000000000000000000
+          Size.Height = 44.000000000000000000
+          Size.PlatformDefault = False
+          object btnNextQuestion: TButton
+            Position.Y = 4.000000000000000000
+            Size.Width = 160.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'Next Question >'
+            OnClick = btnNextQuestionClick
+          end
+          object btnExplain: TButton
+            Position.X = 170.000000000000000000
+            Position.Y = 4.000000000000000000
+            Size.Width = 150.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'Explain Question'
+            OnClick = btnExplainClick
+          end
+          object btnGetResults: TButton
+            Position.X = 330.000000000000000000
+            Position.Y = 4.000000000000000000
+            Size.Width = 150.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Text = 'View Score'
+            OnClick = btnGetResultsClick
+          end
+          object btnEndTestEarly: TButton
+            Position.X = 668.000000000000000000
+            Position.Y = 4.000000000000000000
+            Size.Width = 160.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'End Simulation'
+            OnClick = btnEndTestEarlyClick
+          end
+        end
+      end
+      object layoutResults: TLayout
+        Align = Client
+        Size.Width = 828.000000000000000000
+        Size.Height = 486.000000000000000000
+        Size.PlatformDefault = False
+        Visible = False
+        object rectScoreSummary: TRectangle
+          Align = Top
+          Fill.Color = xFFFFFFFF
+          Size.Width = 828.000000000000000000
+          Size.Height = 56.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFBAE6FD
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          object lblScoreStatus: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 8.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 13.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF059669
+            Text = 'SIMULATION COMPLETED'
+          end
+          object lblScoreDetails: TLabel
+            Position.X = 16.000000000000000000
+            Position.Y = 30.000000000000000000
+            Size.Width = 600.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 11.000000000000000000
+            TextSettings.FontColor = xFF334155
+            Text = 'Total: 8 | Correct: 0 | Incorrect: 0 | Score: 0%'
+          end
+          object btnRestartTest: TButton
+            Position.X = 660.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 150.000000000000000000
+            Size.Height = 36.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            Text = 'New Simulation'
+            OnClick = btnRestartTestClick
+          end
+        end
+        object rectImageCard: TRectangle
+          Align = Client
+          Fill.Color = xFFF8FAFC
+          Margins.Top = 8.000000000000000000
+          Size.Width = 828.000000000000000000
+          Size.Height = 422.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = xFFBAE6FD
+          XRadius = 10.000000000000000000
+          YRadius = 10.000000000000000000
+          object lblReportGenerating: TLabel
+            Align = Center
+            Size.Width = 600.000000000000000000
+            Size.Height = 40.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 14.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = xFF0284C7
+            TextSettings.HorzAlign = Center
+            Text = 'Generating Visual Performance Certificate with AI...'
+          end
+          object imgReport: TImage
+            MultiResBitmap = <
+              item
+              end>
+            Align = Client
+            Margins.Left = 8.000000000000000000
+            Margins.Top = 8.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 8.000000000000000000
+            Size.Width = 812.000000000000000000
+            Size.Height = 406.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
+    end
+  end
+end

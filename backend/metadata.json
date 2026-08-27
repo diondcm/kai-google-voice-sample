@@ -1,0 +1,6 @@
+{
+  "name": "CSView",
+  "description": "Upload any continuous CSV file to receive an intelligently generated dashboard predicting and rendering the most useful charts based on your data structure, powered by Gemini.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
